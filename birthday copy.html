@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Gift</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <style>
+      body {
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-image: url("https://media0.giphy.com/media/U3qYN8S0j3bpK/giphy.gif?cid=ecf05e47w41m1upej6op2r8qa4tkv9888ptew4oz35ea9ftj&rid=giphy.gif&ct=g");
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* background-size: 1600px; */
+        /* background-position-x: right; */
+      }
+      #birthday {
+        position: relative;
+        top: 180px;
+        left: 0;
+      }
+
+      #birthday::before {
+        content: "";
+        position: absolute;
+        background-color: #ede0d4;
+        width: 400px;
+        height: 140px;
+        border-radius: 50%;
+        transform: translate(-50%, -10%);
+        box-shadow: -2px -5px #e6ccb2;
+      }
+      .cake {
+        position: absolute;
+        background-color: #ddb892;
+        width: 350px;
+        height: 130px;
+        transform: translate(-50%, -60%);
+      }
+      .cake::before,
+      .cake::after {
+        content: "";
+        position: absolute;
+      }
+      .cake::before,
+      .mid,
+      .mid::before {
+        border-radius: 50% 50% 50% 50%/ 0% 0% 100% 100%;
+        width: 350px;
+        height: 50px;
+      }
+      .cake::before {
+        background-color: #ddb892;
+        top: 130px;
+      }
+      .cake::after {
+        background-color: #b08968;
+        width: 350px;
+        height: 30px;
+        top: 50px;
+      }
+      .mid {
+        position: absolute;
+        background-color: #b08968;
+        top: 80px;
+        z-index: 1;
+      }
+      .mid::before {
+        content: "";
+        position: absolute;
+        background-color: #ddb892;
+        top: -35px;
+      }
+      .top {
+        position: absolute;
+        background-color: #7f5539;
+        width: 350px;
+        height: 90px;
+        border-radius: 50%;
+        z-index: 2;
+        top: -45px;
+        box-shadow: inset -5px -1px #fff,
+          inset -70px 2px rgba(255, 255, 255, 0.1);
+      }
+      .choc {
+        position: absolute;
+        width: 55px;
+        height: 50px;
+        background-color: #7f5539;
+        top: 0;
+        z-index: 1;
+        border-radius: 50% 50% 50% 50%/0% 0% 100% 100%;
+        box-shadow: 49px 25px #7f5539, 49px 25px #7f5539, 98px 25px #7f5539,
+          147px 30px #7f5539, 196px 25px #7f5539, 245px 20px #7f5539,
+          295px 0px #7f5539, 0px 4px #fff, 49px 29px #fff, 98px 29px #fff,
+          147px 34px #fff, 196px 29px #fff, 245px 24px #fff, 295px 4px #fff;
+      }
+      .choc::before {
+        content: "";
+        position: absolute;
+        width: 175px;
+        height: 180px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 100% 0 100% 0/0 72% 28% 100%;
+        left: 175px;
+        top: 0;
+      }
+      .candles {
+        position: absolute;
+        width: 30px;
+        height: 80px;
+        background: #0081a7;
+        top: -160px;
+        left: -20px;
+        box-shadow: 50px 20px #b3c513, -50px 20px #da560a;
+      }
+      .candles::before {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 10px;
+        background-color: #0081a7;
+        border-radius: 50%;
+        top: -5px;
+        box-shadow: 0 80px #0081a7, -50px 20px #d1640b, -50px 100px #d46409,
+          50px 20px #d1d40c, inset 2px -1px rgb(119, 105, 182);
+      }
+
+      .candles::after {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 10px;
+        border-radius: 50%;
+        top: 15px;
+        left: 50px;
+        box-shadow: inset 2px -1px rgb(149, 206, 17);
+      }
+      .shadow {
+        position: absolute;
+        width: 30px;
+        height: 10px;
+        border-radius: 50%;
+        box-shadow: inset 2px -1px rgb(212, 94, 14);
+        left: -50px;
+        top: 15px;
+      }
+      .shadow::before {
+        content: "";
+        position: absolute;
+        width: 1.5px;
+        height: 15px;
+        left: 14.5px;
+        top: -10px;
+        box-shadow: 50px -20px #333, 100px 0 #333, -2px 0 #333;
+      }
+      .shadow::after {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 90px;
+        left: 15px;
+        border-radius: 0% 100% 50% 50%/ 100% 6% 10% 0%;
+        background-color: rgba(218, 32, 32, 0.1);
+        box-shadow: 50px -20px rgba(44, 7, 209, 0.1),
+          100px 0 rgba(137, 214, 13, 0.1);
+      }
+      .flame1,
+      .flame2,
+      .flame3 {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        transform: rotate(-45deg);
+        z-index: 4;
+        background-color: rgba(209, 160, 63, 0.8);
+        transition: 0.5s;
+        animation: flame1 0.05s infinite;
+      }
+      .flame1,
+      .flame1::before,
+      .flame2,
+      .flame2::before,
+      .flame3,
+      .flame3::before {
+        position: absolute;
+        border-radius: 80% 15% 55% 50%/ 55% 15% 80% 50%;
+      }
+
+      .flame1 {
+        top: -40px;
+        opacity: 0;
+      }
+      .flame2,
+      .flame3 {
+        top: -20px;
+        opacity: 0;
+      }
+
+      .flame2 {
+        left: -50px;
+      }
+      .flame3 {
+        left: 50px;
+      }
+
+      .flame1::before,
+      .flame2::before,
+      .flame3::before {
+        content: "";
+        background-color: rgba(224, 138, 46, 0.4);
+        width: 20px;
+        height: 20px;
+        top: 5px;
+        left: 5px;
+      }
+      @keyframes flame1 {
+        0%,
+        25%,
+        100% {
+          transform: scale(1) rotate(-45deg);
+        }
+        50%,
+        75% {
+          transform: scale(1.1) rotate(-45deg);
+        }
+      }
+      .text1,
+      .text2 {
+        position: absolute;
+        color: rgb(207, 108, 16);
+        /* font-family: cursive; */
+        text-align: center;
+      }
+      .text1 {
+        width: 1200px;
+        font-size: 100px;
+        left: -550px;
+        font-weight: bolder;
+        top: 320px;
+        z-index: -1;
+        transition: 0.5s;
+        opacity: 0;
+        font-family: "Henny Penny", cursive;
+        background: linear-gradient(to right, #d80ab6 0%, #b7d607 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .text2 {
+        font-size: 25px;
+        width: 300px;
+        top: 110px;
+        left: -140px;
+      }
+      .bubble img{
+        width: 100px;
+        animation: bubble 4s linear infinite;
+      }
+      .bubble{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: absolute;
+        bottom: 0;
+      }
+      @keyframes bubble{
+        0%{
+          transform: translateY(0);
+          opacity: 1;
+        }
+        30%{
+          opacity: 0.4;
+        }
+        65%{
+          opacity: 0.5;
+        }
+        50%{
+          opacity: 1;
+        }
+        75%{
+          opacity: 0.7;
+        }
+        100%{
+          transform: translateY(-80vh);
+          opacity: 0;
+        }
+      }
+      .bubble img:nth-child(1){
+        animation-delay: 1.2s;
+      }
+      .bubble img:nth-child(2){
+        animation-delay: 0.3s;
+      }
+      .bubble img:nth-child(3){
+        animation-delay: 2.7s;
+      }
+      .bubble img:nth-child(7){
+        animation-delay: 3.8s;
+      }
+      .bubble img:nth-child(5){
+        animation-delay: 5.5s;
+      }
+      .bubble img:nth-child(6){
+        animation-delay: 4.2;
+      }
+      .bubble img:nth-child(9){
+        animation-delay: 6.3s;
+      }
+      .bubble img:nth-child(8){
+        animation-delay: 6.9s;
+      }
+      .bubble img:nth-child(4){
+        animation-delay: 8.5s;
+      }
+      .bubble img:nth-child(10){
+        animation-delay: 7.6s;
+        
+      }
+      audio{
+        width: 30px;
+        height: -80px;
+        display: flex;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        
+      }
+      @media(max-width:960px){
+         .text1 p{
+          font-size: 50px;
+          width: 1200px;
+          left: -550px;
+          margin-top: 150px;
+         }
+         .text2{
+          font-size: 15px;
+          width: 100px;
+         }
+         .bubble img{
+          width: 100%;
+         }
+         body{
+          height: 70vh ;
+         }
+      }
+      @media (max-widt:560px){
+        .text1 p{
+          font-size: 50px;
+          width: 1200px;
+          left: -550px;
+          margin-top: -250px;
+         }
+         .text2{
+          font-size: 15px;
+          width: 100px;
+         }
+         .bubble img{
+          width: 100%;
+         }
+         body{
+          height:70vh ;
+         }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="birthday">
+      <div class="cake">
+        
+        <div class="mid"></div>
+        <div class="choc"></div>
+        <div class="top"></div>
+      </div>
+      <div class="candles">
+        <div> <audio controls>
+          <source src = "https://cdn.pixabay.com/download/audio/2022/06/27/audio_a8ad665dd3.mp3?filename=fun-whistle-ukulele-113979.mp3" type = "audio/ogg" />
+          
+       </audio></div>
+        <div class="flame1">
+         
+        </div>
+        <div class="flame2"></div>
+        <div class="flame3"></div>
+        <div class="shadow"></div>
+        <div class="text1">
+          <p>Happy Birthday <br>CEO Saloni Jain</p>
+        </div>
+      </div>
+      <p class="text2">Click on the flame to blow Candles !!</p>
+
+      
+    </div>
+    <div class="bubble">
+      <img src="https://www.nicepng.com/png/full/982-9824393_happy-birthday-blue-balloon-happy-birthday-foil-balloon.png" alt="">
+      <img src="https://i.gifer.com/ytR.gif" height="190px" width="250px" alt="">
+      <img src="https://www.seekpng.com/png/full/822-8226158_birthday-gold-glitter-dots-18-foil-balloon-balloon.png" alt="">
+      <img src="https://www.nicepng.com/png/full/982-9824393_happy-birthday-blue-balloon-happy-birthday-foil-balloon.png" alt="">
+      <img src="https://www.pngkit.com/png/full/85-857123_happy-birthday-foil-balloon-png-clipart-confetti-happy.png" alt="">
+      <img src="https://www.seekpng.com/png/full/822-8226158_birthday-gold-glitter-dots-18-foil-balloon-balloon.png" alt="">
+      <img src="https://www.nicepng.com/png/full/982-9824393_happy-birthday-blue-balloon-happy-birthday-foil-balloon.png" alt="">
+      <img src="https://i.gifer.com/ytR.gif" alt="">
+      <img src="https://www.pngkit.com/png/full/85-857123_happy-birthday-foil-balloon-png-clipart-confetti-happy.png"  alt="">
+      <img src="https://www.nicepng.com/png/full/982-9824393_happy-birthday-blue-balloon-happy-birthday-foil-balloon.png" alt="">
+      
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $(".candles").click(function () {
+          $(".flame1").animate({ opacity: 1 }, "slow");
+          $(".flame2").animate({ opacity: 1 }, "slow");
+          $(".flame3").animate({ opacity: 1 }, "slow");
+          $(".text1").animate({ opacity: 1, top: -470 }, "fast");
+        });
+      });
+    </script>
+  </body>
+</html>
